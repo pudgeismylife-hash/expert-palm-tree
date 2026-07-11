@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Invitation - Arshiya & Afham</title>
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Great+Vibes&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Custom Styling -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Background Ambient Music -->
+  <!-- Note: You can replace the src with your own song file, e.g. "music.mp3" -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- Mute / Play Toggle (Hidden initially, shown after opening) -->
+  <button id="music-toggle" class="music-toggle hidden" aria-label="Toggle Music">
+    <svg class="music-icon playing" viewBox="0 0 24 24" width="24" height="24">
+      <path fill="currentColor" d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6zm-2 16c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+    </svg>
+    <svg class="music-icon muted hidden" viewBox="0 0 24 24" width="24" height="24">
+      <path fill="currentColor" d="M4.27 3L3 4.27l9 9v.28c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4v-1.73l6 6L21 20.73 4.27 3zM10 19c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm4-12h4V3h-6v3.27l2 2V7z"/>
+    </svg>
+    <span class="music-pulse-ring"></span>
+  </button>
+
+  <!-- ================= ENVELOPE STAGE ================= -->
+  <div class="envelope-overlay" id="envelope-overlay">
+    <div class="envelope-container">
+      <div class="envelope" id="envelope">
+        <div class="flap top-flap"></div>
+        <div class="flap left-flap"></div>
+        <div class="flap right-flap"></div>
+        <div class="pocket"></div>
+        
+        <!-- Wax Seal -->
+        <div class="wax-seal" id="wax-seal">
+          <div class="wax-seal-inner">
+            <svg class="seal-logo" viewBox="0 0 100 100" width="50" height="50">
+              <path fill="none" stroke="currentColor" stroke-width="2" d="M20 50 A30 30 0 1 1 80 50 A30 30 0 1 1 20 50 Z" />
+              <text x="50" y="58" text-anchor="middle" font-family="'Great Vibes', cursive" font-size="28" fill="currentColor">A&A</text>
+            </svg>
+          </div>
+          <span class="pulse-ring"></span>
+        </div>
+
+        <!-- Mini Preview inside envelope -->
+        <div class="mini-card">
+          <h2 class="script-font">Arshiya & Afham</h2>
+          <p class="sans-font">Are Weds</p>
+        </div>
+      </div>
+      
+      <!-- Envelope Prompt -->
+      <div class="envelope-prompt" id="envelope-prompt">
+        <p class="prompt-subtitle">YOU ARE INVITED</p>
+        <h1 class="prompt-title serif-font">Arshiya & Afham</h1>
+        <p class="prompt-text">Tap the wax seal to open the invitation</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MAIN SCROLLABLE INVITATION CONTAINER ================= -->
+  <div class="main-container hidden" id="main-container">
+    
+    <!-- SECTION 1: COVER / INTRO -->
+    <section class="invite-section reveal" id="section-welcome">
+      <div class="card-border">
+        <div class="card-content">
+          <div class="floral-corner top-left"></div>
+          <div class="floral-corner top-right"></div>
+          <div class="floral-corner bottom-left"></div>
+          <div class="floral-corner bottom-right"></div>
+          
+          <p class="bismillah-arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+          <p class="bismillah-translation">IN THE NAME OF ALLAH, THE MOST GRACIOUS & THE MOST MERCIFUL</p>
+          
+          <div class="host-details">
+            <h3 class="host-name">MR. B.H ASGAR ALI & MRS. FATHIMA</h3>
+            <p class="host-affiliation">(DECCAN GROUP OF COMPANIES, MANGALORE)</p>
+          </div>
+          
+          <p class="invitation-text">
+            Request the honor of your esteemed presence along with your family and friends on the auspicious wedding ceremony of our daughter
+          </p>
+          
+          <div class="couple-names">
+            <h1 class="bride-name script-font">Arshiya Zulekha</h1>
+            <p class="bride-details font-sm">
+              (Grand D/o. Marhoom Baikampady Hussain (Uttaka) & Marhoom Ibrahim Arkula)
+            </p>
+            
+            <div class="wedding-connector">
+              <span class="line"></span>
+              <span class="ampersand">WITH</span>
+              <span class="line"></span>
+            </div>
+            
+            <h1 class="groom-name script-font">Moideen Afham</h1>
+            <p class="groom-details font-sm">
+              (S/o. Mr. V.M Farook & Mrs. N.A Safariya,<br>Farook Boards & Wood Industries, Hosangadi, Manjeshwar)
+            </p>
+            <p class="groom-grand-details font-xs">
+              (Grand S/o. Marhoom V.K. Moideen Kunhi Haji, Farook Saw Mill, Hosangadi & N.M. Aboobacker Haji, Nekare, Naimarmoola)
+            </p>
+          </div>
+          
+          <div class="scroll-indicator">
+            <span class="scroll-text">Scroll Down</span>
+            <svg class="scroll-arrow" viewBox="0 0 24 24" width="20" height="20">
+              <path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41Z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: MEHENDI CEREMONY -->
+    <section class="invite-section reveal" id="section-mehendi">
+      <div class="card-border border-mehendi">
+        <div class="card-content">
+          <div class="floral-corner top-left theme-mehendi"></div>
+          <div class="floral-corner top-right theme-mehendi"></div>
+          <div class="floral-corner bottom-left theme-mehendi"></div>
+          <div class="floral-corner bottom-right theme-mehendi"></div>
+          
+          <div class="ceremony-header">
+            <div class="pattern-divider mehendi-icon"></div>
+            <h2 class="script-font event-title">Mehendi Ceremony</h2>
+            <p class="ceremony-invite-text">You are cordially invited to Mehendi Ceremony of</p>
+            <h3 class="bride-name-highlight script-font">Arshiya Zulekha</h3>
+          </div>
+          
+          <div class="event-details-box">
+            <p class="insha-allah">INSHA ALLAH</p>
+            <div class="date-badge">
+              <span class="day">WEDNESDAY</span>
+              <span class="date">12</span>
+              <span class="month-year">AUGUST 2026</span>
+            </div>
+            
+            <div class="time-row">
+              <svg viewBox="0 0 24 24" width="20" height="20" class="gold-icon"><path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+              <span class="time-text">7:00 PM ONWARDS</span>
+            </div>
+            
+            <div class="venue-row">
+              <svg viewBox="0 0 24 24" width="20" height="20" class="gold-icon"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              <address class="venue-address">
+                <strong>INDIANA CONVENTION CENTER</strong><br>
+                Jeppinamogaru, Mangalore
+              </address>
+            </div>
+          </div>
+
+          <!-- Maps QR Code (Tap to open) -->
+          <div class="qrcode-wrapper">
+            <a href="https://maps.app.goo.gl/wJcM1fD4iUqGzG4B8" target="_blank" class="qrcode-link">
+              <div class="qrcode-frame">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&color=a67c1e&bgcolor=fcFAF6&data=https%3A%2F%2Fmaps.app.goo.gl%2FwJcM1fD4iUqGzG4B8" alt="Mehendi Map QR" class="qrcode-img">
+                <div class="qrcode-tap-hint">
+                  <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                  <span>Tap to Navigate</span>
+                </div>
+              </div>
+            </a>
+            <p class="qrcode-subtext">Scan or Tap to Open Google Maps</p>
+          </div>
+          
+          <div class="action-buttons">
+            <button onclick="addToCalendar('Mehendi Ceremony', '2026-08-12T19:00:00', 'Indiana Convention Center, Jeppinamogaru, Mangalore')" class="btn btn-primary">
+              <span>Add to Calendar</span>
+            </button>
+          </div>
+          
+          <div class="quote-box">
+            <p class="quote">"Let's celebrate love, laughter & beautiful beginnings."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: NIKAH CEREMONY -->
+    <section class="invite-section reveal" id="section-nikah">
+      <div class="card-border border-nikah">
+        <div class="card-content">
+          <div class="floral-corner top-left theme-nikah"></div>
+          <div class="floral-corner top-right theme-nikah"></div>
+          <div class="floral-corner bottom-left theme-nikah"></div>
+          <div class="floral-corner bottom-right theme-nikah"></div>
+          
+          <div class="ceremony-header">
+            <div class="nikah-mubarak-logo">
+              <svg viewBox="0 0 100 100" width="70" height="70" class="gold-icon">
+                <path fill="currentColor" d="M50 10c-22.1 0-40 17.9-40 40s17.9 40 40 40 40-17.9 40-40-17.9-40-40-40zm0 72c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32zm-6-46h4c1.1 0 2-.9 2-2s-.9-2-2-2h-4c-1.1 0-2 .9-2 2s.9 2 2 2zm12 18c0 2.2-1.8 4-4 4h-8c-2.2 0-4-1.8-4-4V42c0-2.2 1.8-4 4-4h8c2.2 0 4 1.8 4 4v10zm-4-10h-8v10h8V44z"/>
+              </svg>
+            </div>
+            <h2 class="serif-font event-title">Nikah Ceremony</h2>
+            <p class="ceremony-invite-text">You are cordially invited to Nikah Ceremony</p>
+          </div>
+          
+          <div class="event-details-box">
+            <p class="insha-allah">INSHA ALLAH</p>
+            <div class="date-badge theme-green">
+              <span class="day">FRIDAY</span>
+              <span class="date">14</span>
+              <span class="month-year">AUGUST 2026</span>
+              <span class="hijri-date">1-RABI AL-AWWAL-1448</span>
+            </div>
+            
+            <div class="time-row">
+              <svg viewBox="0 0 24 24" width="20" height="20" class="gold-icon"><path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+              <span class="time-text">4:30 PM</span>
+            </div>
+            
+            <div class="venue-row">
+              <svg viewBox="0 0 24 24" width="20" height="20" class="gold-icon"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              <address class="venue-address">
+                <strong>GRAND AUDITORIUM</strong><br>
+                Hosangady, Manjeshwar
+              </address>
+            </div>
+          </div>
+
+          <!-- Maps QR Code (Tap to open) -->
+          <div class="qrcode-wrapper">
+            <a href="https://maps.app.goo.gl/3rX9W4v8vQ81f4yU9" target="_blank" class="qrcode-link">
+              <div class="qrcode-frame">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&color=a67c1e&bgcolor=fcFAF6&data=https%3A%2F%2Fmaps.app.goo.gl%2F3rX9W4v8vQ81f4yU9" alt="Nikah Map QR" class="qrcode-img">
+                <div class="qrcode-tap-hint">
+                  <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                  <span>Tap to Navigate</span>
+                </div>
+              </div>
+            </a>
+            <p class="qrcode-subtext">Scan or Tap to Open Google Maps</p>
+          </div>
+          
+          <div class="action-buttons">
+            <button onclick="addToCalendar('Nikah Ceremony: Arshiya & Afham', '2026-08-14T16:30:00', 'Grand Auditorium, Hosangady, Manjeshwar')" class="btn btn-primary">
+              <span>Add to Calendar</span>
+            </button>
+          </div>
+          
+          <div class="quote-box">
+            <p class="quote">"Your dua and blessings are the best gift for us"</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: RECEPTION CEREMONY -->
+    <section class="invite-section reveal" id="section-reception">
+      <div class="card-border border-reception">
+        <div class="card-content">
+          <div class="floral-corner top-left theme-reception"></div>
+          <div class="floral-corner top-right theme-reception"></div>
+          <div class="floral-corner bottom-left theme-reception"></div>
+          <div class="floral-corner bottom-right theme-reception"></div>
+          
+          <div class="ceremony-header">
+            <div class="pattern-divider reception-icon"></div>
+            <h2 class="script-font event-title">Reception</h2>
+            <p class="ceremony-invite-text">You are cordially invited to Reception Ceremony</p>
+          </div>
+          
+          <div class="event-details-box">
+            <p class="insha-allah">INSHA ALLAH</p>
+            <div class="date-badge theme-purple">
+              <span class="day">SUNDAY</span>
+              <span class="date">16</span>
+              <span class="month-year">AUGUST 2026</span>
+              <span class="hijri-date">3-RABI AL-AWWAL-1448</span>
+            </div>
+            
+            <div class="time-row">
+              <svg viewBox="0 0 24 24" width="20" height="20" class="gold-icon"><path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+              <span class="time-text">7:00 PM ONWARDS</span>
+            </div>
+            
+            <div class="venue-row">
+              <svg viewBox="0 0 24 24" width="20" height="20" class="gold-icon"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              <address class="venue-address">
+                <strong>TMA PAI INTERNATIONAL CONVENTION CENTRE</strong><br>
+                MG Road, Mangaluru
+              </address>
+            </div>
+          </div>
+
+          <!-- Maps QR Code (Tap to open) -->
+          <div class="qrcode-wrapper">
+            <a href="https://maps.app.goo.gl/B9qYqWzPq2B4f2vA8" target="_blank" class="qrcode-link">
+              <div class="qrcode-frame">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&color=a67c1e&bgcolor=fcFAF6&data=https%3A%2F%2Fmaps.app.goo.gl%2FB9qYqWzPq2B4f2vA8" alt="Reception Map QR" class="qrcode-img">
+                <div class="qrcode-tap-hint">
+                  <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                  <span>Tap to Navigate</span>
+                </div>
+              </div>
+            </a>
+            <p class="qrcode-subtext">Scan or Tap to Open Google Maps</p>
+          </div>
+          
+          <div class="action-buttons">
+            <button onclick="addToCalendar('Wedding Reception: Arshiya & Afham', '2026-08-16T19:00:00', 'TMA Pai International Convention Centre, MG Road, Mangaluru')" class="btn btn-primary">
+              <span>Add to Calendar</span>
+            </button>
+          </div>
+          
+          <div class="quote-box">
+            <p class="quote">"Your dua and blessings are the best gift for us"</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: RSVP & COUNTDOWN -->
+    <section class="invite-section reveal" id="section-rsvp">
+      <div class="card-border border-rsvp">
+        <div class="card-content">
+          <div class="floral-corner top-left"></div>
+          <div class="floral-corner top-right"></div>
+          <div class="floral-corner bottom-left"></div>
+          <div class="floral-corner bottom-right"></div>
+          
+          <h2 class="script-font section-title">Countdown to Nikah</h2>
+          
+          <!-- Countdown Widget -->
+          <div class="countdown-container" id="countdown">
+            <div class="time-block">
+              <span class="time-val" id="days">00</span>
+              <span class="time-lbl">Days</span>
+            </div>
+            <div class="time-block">
+              <span class="time-val" id="hours">00</span>
+              <span class="time-lbl">Hrs</span>
+            </div>
+            <div class="time-block">
+              <span class="time-val" id="minutes">00</span>
+              <span class="time-lbl">Mins</span>
+            </div>
+            <div class="time-block">
+              <span class="time-val" id="seconds">00</span>
+              <span class="time-lbl">Secs</span>
+            </div>
+          </div>
+
+          <div class="rsvp-divider"></div>
+
+          <h2 class="script-font section-title">Will you attend?</h2>
+          
+          <!-- Interactive RSVP Form -->
+          <form id="rsvp-form" class="rsvp-form">
+            <div class="form-group">
+              <input type="text" id="guest-name" name="name" placeholder="Enter Your Name" required>
+            </div>
+            
+            <div class="form-group radio-group">
+              <label class="radio-label">
+                <input type="radio" name="attendance" value="attending" checked>
+                <span class="radio-custom"></span> Joyfully Accept
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="attendance" value="declined">
+                <span class="radio-custom"></span> Regretfully Decline
+              </label>
+            </div>
+
+            <div class="form-group select-group" id="guests-number-group">
+              <label for="guests-count">Number of Guests</label>
+              <select id="guests-count" name="guests">
+                <option value="1">1 Person</option>
+                <option value="2">2 Persons</option>
+                <option value="3">3 Persons</option>
+                <option value="4">4 Persons</option>
+                <option value="5+">5+ Persons</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <textarea id="guest-message" name="message" placeholder="Warm Wishes or Message for the Couple" rows="2"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-submit">
+              <span>Send RSVP</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- RSVP Confirmation Success Modal -->
+  <div class="modal-overlay hidden" id="rsvp-modal">
+    <div class="modal-content">
+      <div class="modal-floral"></div>
+      <h2 class="script-font modal-title">Thank You!</h2>
+      <p class="modal-text" id="modal-response-msg">Your response has been saved. We look forward to celebrating together!</p>
+      <button class="btn btn-primary" id="close-modal-btn"><span>Close</span></button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
