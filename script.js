@@ -5,8 +5,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // --- DOM Elements ---
   const waxSeal = document.getElementById('wax-seal');
-  const envelope = document.getElementById('envelope');
-  const envelopeOverlay = document.getElementById('envelope-overlay');
+  const coverOverlay = document.getElementById('cover-overlay');
   const mainContainer = document.getElementById('main-container');
   const lightFlash = document.getElementById('light-flash');
   const bgMusic = document.getElementById('bg-music');
@@ -68,15 +67,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================================
-  // 3D ENVELOPE OPENING ANIMATION SEQUENCE
+  // "MEDALLION UNLOCK" ZOOM OPENING ANIMATION SEQUENCE
   // =========================================================
   
   function executeOpeningSequence() {
     // 1. Start ambient music loop
     startMusic();
 
-    // 2. Trigger 3D Envelope card open state
-    envelope.classList.add('open');
+    // 2. Trigger Cover split panels slide animation
+    coverOverlay.classList.add('open');
 
     // 3. Initiate scene flash & reveal scrollable content
     setTimeout(() => {
@@ -85,12 +84,12 @@ document.addEventListener('DOMContentLoaded', () => {
       
       setTimeout(() => {
         // Fade out overlay screen
-        envelopeOverlay.style.opacity = '0';
+        coverOverlay.style.opacity = '0';
         lightFlash.classList.remove('active');
         
         setTimeout(() => {
           // Remove cover elements, show details
-          envelopeOverlay.classList.add('hidden');
+          coverOverlay.classList.add('hidden');
           mainContainer.classList.remove('hidden');
           musicToggle.classList.remove('hidden');
           
@@ -101,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }, 60);
         }, 800);
       }, 300);
-    }, 1500); // Wait for flap open & card slide
+    }, 1200); // Wait for split panels to slide away
   }
 
   // Bind Open Triggers

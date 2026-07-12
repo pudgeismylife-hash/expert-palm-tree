@@ -44,52 +44,54 @@
     <span class="music-pulse-ring"></span>
   </button>
 
-  <!-- ================= 3D ENVELOPE OPENING STAGE ================= -->
-  <div class="envelope-overlay" id="envelope-overlay">
-    <div class="envelope-wrapper">
-      <div class="envelope-container" id="envelope-container">
-        <div class="envelope" id="envelope">
-          
-          <!-- Top Flap (Hinges upwards in 3D) -->
-          <div class="envelope-flap" id="envelope-flap"></div>
-          
-          <!-- The Eucharistic Chalice Wax Seal Medallion -->
-          <div class="wax-seal" id="wax-seal">
-            <div class="wax-seal-inner">
-              <svg class="chalice-logo-svg" viewBox="0 0 100 100" width="55" height="55">
-                <circle cx="50" cy="30" r="16" fill="#FBF8F3" stroke="#d4af37" stroke-width="2" />
-                <line x1="50" y1="18" x2="50" y2="42" stroke="#d4af37" stroke-width="2" />
-                <line x1="38" y1="30" x2="62" y2="30" stroke="#d4af37" stroke-width="2" />
-                <path d="M50 8 L50 12 M50 48 L50 52 M28 30 L32 30 M68 30 L72 30" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round" />
-                <path d="M32 50 C32 64, 68 64, 68 50 Z" fill="url(#goldGradient)" stroke="#d4af37" stroke-width="1.5" />
-                <path d="M50 58 L50 82" stroke="#d4af37" stroke-width="4" stroke-linecap="round" />
-                <path d="M36 82 L64 82 C64 82, 50 85, 36 82 Z" fill="url(#goldGradient)" stroke="#d4af37" stroke-width="2" />
-                <defs>
-                  <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#fdf6e2" />
-                    <stop offset="50%" stop-color="#d4af37" />
-                    <stop offset="100%" stop-color="#aa851f" />
-                  </linearGradient>
-                </defs>
-              </svg>
-            </div>
-            <span class="pulse-ring"></span>
-          </div>
-          
-          <!-- Side/Bottom Flaps & Pocket -->
-          <div class="envelope-pocket"></div>
-          
-          <!-- Inner Card Preview (slides out of the pocket) -->
-          <div class="envelope-card-preview" id="envelope-card-preview">
-            <div class="preview-content">
-              <span class="preview-cross">&#10013;</span>
-              <p class="preview-subtitle">FIRST HOLY COMMUNION</p>
-              <h2 class="preview-title script-font">Christan Lawrence</h2>
-              <p class="preview-prompt">Tap Seal to Open</p>
-            </div>
-          </div>
-          
+  <!-- ================= "MEDALLION UNLOCK" ZOOM STAGE ================= -->
+  <div class="cover-overlay" id="cover-overlay">
+    <div class="cover-wrapper" id="cover-wrapper">
+      
+      <!-- Left Panel (slides left) -->
+      <div class="cover-panel panel-left" id="panel-left">
+        <div class="panel-content">
+          <div class="floral-corner top-left-svg"></div>
+          <div class="floral-corner bottom-left-svg"></div>
         </div>
+      </div>
+      
+      <!-- Right Panel (slides right) -->
+      <div class="cover-panel panel-right" id="panel-right">
+        <div class="panel-content">
+          <div class="floral-corner top-right-svg"></div>
+          <div class="floral-corner bottom-right-svg"></div>
+        </div>
+      </div>
+      
+      <!-- The Eucharistic Chalice Wax Seal Medallion (Centered, bridging the panels) -->
+      <div class="wax-seal" id="wax-seal">
+        <div class="wax-seal-inner">
+          <svg class="chalice-logo-svg" viewBox="0 0 100 100" width="55" height="55">
+            <circle cx="50" cy="30" r="16" fill="#FBF8F3" stroke="#d4af37" stroke-width="2" />
+            <line x1="50" y1="18" x2="50" y2="42" stroke="#d4af37" stroke-width="2" />
+            <line x1="38" y1="30" x2="62" y2="30" stroke="#d4af37" stroke-width="2" />
+            <path d="M50 8 L50 12 M50 48 L50 52 M28 30 L32 30 M68 30 L72 30" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M32 50 C32 64, 68 64, 68 50 Z" fill="url(#goldGradient)" stroke="#d4af37" stroke-width="1.5" />
+            <path d="M50 58 L50 82" stroke="#d4af37" stroke-width="4" stroke-linecap="round" />
+            <path d="M36 82 L64 82 C64 82, 50 85, 36 82 Z" fill="url(#goldGradient)" stroke="#d4af37" stroke-width="2" />
+            <defs>
+              <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fdf6e2" />
+                <stop offset="50%" stop-color="#d4af37" />
+                <stop offset="100%" stop-color="#aa851f" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="pulse-ring"></span>
+      </div>
+
+      <!-- Text overlay at the bottom -->
+      <div class="cover-text" id="cover-text">
+        <p class="cover-subtitle">FIRST HOLY COMMUNION</p>
+        <h1 class="cover-title script-font">Christan Lawrence</h1>
+        <p class="cover-prompt">Tap the Holy Chalice Seal to Open</p>
       </div>
       
       <!-- Skip Transition Button -->

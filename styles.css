@@ -68,151 +68,74 @@ body {
    ========================================================= */
 
 /* =========================================================
-   3D ENVELOPE OPENING STAGE
+   "MEDALLION UNLOCK" ZOOM STAGE
    ========================================================= */
 
-.envelope-overlay {
+.cover-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 900;
-  transition: opacity 1.2s ease-in-out;
   overflow: hidden;
+  background: transparent;
+  transition: opacity 0.8s ease-in-out;
 }
 
-.envelope-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 400px;
-  height: 85vh;
-  max-height: 600px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.envelope-container {
-  position: relative;
-  width: 320px;
-  height: 220px;
-  perspective: 1200px;
-}
-
-.envelope {
+.cover-wrapper {
   position: relative;
   width: 100%;
   height: 100%;
-  background: #FAF5EA;
-  border-radius: 0 0 12px 12px;
-  box-shadow: 0 20px 45px rgba(143, 114, 48, 0.12);
-  transform-style: preserve-3d;
-  transition: transform 0.3s ease;
-}
-
-.envelope-flap {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 110px;
-  background: #EFE4CE;
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  transform-origin: top center;
-  z-index: 40;
-  transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-.envelope-pocket {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 120px;
-  background: #EAE0C7;
-  border-radius: 0 0 12px 12px;
-  z-index: 45;
-  border-top: 1.5px solid rgba(143, 114, 48, 0.12);
-}
-
-.envelope-card-preview {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  height: 200px;
-  background: var(--color-card-white);
-  border-radius: 8px;
-  z-index: 35;
-  border: 1px solid var(--color-gold-light);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 15px;
-  text-align: center;
-  transform: translateY(10px) scale(0.95);
-  opacity: 0;
-  transition: transform 1.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease-in-out;
 }
 
-.preview-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.cover-panel {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: var(--color-bg-ivory);
+  box-shadow: 0 0 30px rgba(143, 114, 48, 0.1);
+  transition: transform 1.4s cubic-bezier(0.25, 1, 0.3, 1), opacity 1.2s ease-out;
+  z-index: 10;
+}
+
+.panel-left {
+  left: 0;
+  border-right: 0.5px solid var(--color-gold-light);
+}
+
+.panel-right {
+  right: 0;
+  border-left: 0.5px solid var(--color-gold-light);
+}
+
+.panel-content {
+  position: relative;
   width: 100%;
+  height: 100%;
+  /* Cotton paper grain texture on panels */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' fill='none'/%3E%3C/svg%3E");
 }
 
-.preview-cross {
-  font-size: 14px;
-  color: var(--color-gold-dark);
-  margin-bottom: 6px;
+/* Open states for split panels */
+.cover-overlay.open .panel-left {
+  transform: translateX(-100%);
+  opacity: 0;
 }
 
-.preview-subtitle {
-  font-size: 8px;
-  letter-spacing: 2px;
-  color: var(--color-gold-dark);
-  font-weight: 700;
-  margin-bottom: 4px;
+.cover-overlay.open .panel-right {
+  transform: translateX(100%);
+  opacity: 0;
 }
 
-.preview-title {
-  font-size: 20px;
-  color: var(--color-text-dark);
-  margin-bottom: 6px;
-}
-
-.preview-prompt {
-  font-size: 9.5px;
-  color: var(--color-text-muted);
-  font-style: italic;
-}
-
-/* 3D Envelope Open State Animations */
-.envelope.open .envelope-flap {
-  transform: rotateX(180deg);
-  z-index: 30; /* sit behind the sliding card */
-}
-
-.envelope.open .envelope-card-preview {
-  transform: translateY(-240px) scale(1.06);
-  opacity: 1;
-  z-index: 48; /* stand in front */
-}
-
-/* Wax Seal Chalice Medallion (Spanning the center overlap) */
+/* Wax Seal Chalice Medallion (Centered, bridging panels) */
 .wax-seal {
   position: absolute;
-  top: 110px; /* Sits at the tip of the downward envelope flap */
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   width: 82px;
@@ -220,6 +143,56 @@ body {
   z-index: 50;
   cursor: pointer;
   transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease-out;
+}
+
+.cover-overlay.open .wax-seal {
+  transform: translate(-50%, -50%) scale(0) rotate(45deg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cover-overlay.open .pulse-ring {
+  opacity: 0;
+}
+
+/* Text on Closed Cover */
+.cover-text {
+  position: absolute;
+  bottom: 8%;
+  width: 100%;
+  text-align: center;
+  z-index: 20;
+  padding: 0 20px;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  pointer-events: none;
+}
+
+.cover-overlay.open .cover-text {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.cover-subtitle {
+  font-size: 10px;
+  letter-spacing: 3.5px;
+  color: var(--color-gold-dark);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.cover-title {
+  font-size: 34px;
+  color: var(--color-text-dark);
+  margin-bottom: 12px;
+  font-weight: 500;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+.cover-prompt {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  font-style: italic;
+  letter-spacing: 0.5px;
 }
 
 .wax-seal-inner {
@@ -260,17 +233,6 @@ body {
 @keyframes pulseSeal {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.04); }
-}
-
-/* Envelope Open State Actions */
-.envelope.open .wax-seal {
-  transform: translate(-50%, -50%) scale(0) rotate(45deg);
-  opacity: 0;
-  pointer-events: none;
-}
-
-.envelope.open .pulse-ring {
-  opacity: 0;
 }
 
 /* Skip Trigger */
@@ -412,12 +374,14 @@ body {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   opacity: 0;
+  transform: scale(0.93);
   z-index: 5;
-  transition: opacity 1.5s ease-out;
+  transition: opacity 1.5s ease-out, transform 1.5s cubic-bezier(0.25, 1, 0.3, 1);
 }
 
 .main-container.show {
   opacity: 1;
+  transform: scale(1);
 }
 
 .invite-section {
@@ -1232,23 +1196,12 @@ body {
 }
 
 @media (max-width: 360px) {
-  .envelope-container {
-    width: 290px;
-    height: 200px;
-  }
-  .envelope-flap {
-    height: 100px;
-  }
-  .envelope-pocket {
-    height: 110px;
+  .cover-title {
+    font-size: 26px;
   }
   .wax-seal {
-    top: 100px;
     width: 72px;
     height: 72px;
-  }
-  .preview-title {
-    font-size: 17px;
   }
   .invite-section {
     padding: 20px 8px;
