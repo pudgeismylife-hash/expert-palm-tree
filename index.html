@@ -3,116 +3,151 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wedding Invitation - Arshiya & Afham</title>
+  <title>First Holy Communion - Christan Lawrence</title>
   
-  <!-- Premium Fonts -->
+  <!-- Open Graph / WhatsApp / Facebook Social Previews -->
+  <!-- IMPORTANT: Replace this with your actual Vercel URL if you choose a different project name -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="First Holy Communion — Christan Lawrence">
+  <meta property="og:description" content="You are cordially invited to the First Holy Communion ceremony of Christan Lawrence on Sunday, 10 May 2026.">
+  <meta property="og:image" content="https://christan-lawrence-communion.vercel.app/assets/images/og_preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://christan-lawrence-communion.vercel.app/">
+
+  <!-- Premium Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Great+Vibes&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   
   <!-- Custom Styling -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Background Ambient Music -->
-  <!-- Note: You can replace the src with your own song file, e.g. "music.mp3" -->
+  <!-- Ambient Particle Canvas Background -->
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+  <!-- Ambient Instrumental Music -->
   <audio id="bg-music" loop preload="auto">
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" type="audio/mp3">
+    <source src="assets/audio/communion_music.m4a" type="audio/mp4">
   </audio>
 
-  <!-- Mute / Play Toggle (Hidden initially, shown after opening) -->
+  <!-- Floating Audio Visualizer Controller -->
   <button id="music-toggle" class="music-toggle hidden" aria-label="Toggle Music">
-    <svg class="music-icon playing" viewBox="0 0 24 24" width="24" height="24">
-      <path fill="currentColor" d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6zm-2 16c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
-    </svg>
-    <svg class="music-icon muted hidden" viewBox="0 0 24 24" width="24" height="24">
-      <path fill="currentColor" d="M4.27 3L3 4.27l9 9v.28c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4v-1.73l6 6L21 20.73 4.27 3zM10 19c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm4-12h4V3h-6v3.27l2 2V7z"/>
-    </svg>
+    <div class="music-wave">
+      <span class="wave-bar bar-1"></span>
+      <span class="wave-bar bar-2"></span>
+      <span class="wave-bar bar-3"></span>
+      <span class="wave-bar bar-4"></span>
+    </div>
     <span class="music-pulse-ring"></span>
   </button>
 
-  <!-- ================= ENVELOPE STAGE ================= -->
+  <!-- ================= 3D ENVELOPE OPENING STAGE ================= -->
   <div class="envelope-overlay" id="envelope-overlay">
-    <div class="envelope-container">
-      <div class="envelope" id="envelope">
-        <div class="flap top-flap"></div>
-        <div class="flap left-flap"></div>
-        <div class="flap right-flap"></div>
-        <div class="pocket"></div>
-        
-        <!-- Wax Seal -->
-        <div class="wax-seal" id="wax-seal">
-          <div class="wax-seal-inner">
-            <svg class="seal-logo" viewBox="0 0 100 100" width="50" height="50">
-              <path fill="none" stroke="currentColor" stroke-width="2" d="M20 50 A30 30 0 1 1 80 50 A30 30 0 1 1 20 50 Z" />
-              <text x="50" y="58" text-anchor="middle" font-family="'Great Vibes', cursive" font-size="28" fill="currentColor">A&A</text>
-            </svg>
+    <div class="envelope-wrapper">
+      <div class="envelope-container" id="envelope-container">
+        <div class="envelope" id="envelope">
+          
+          <!-- Top Flap (Hinges upwards in 3D) -->
+          <div class="envelope-flap" id="envelope-flap"></div>
+          
+          <!-- The Eucharistic Chalice Wax Seal Medallion -->
+          <div class="wax-seal" id="wax-seal">
+            <div class="wax-seal-inner">
+              <svg class="chalice-logo-svg" viewBox="0 0 100 100" width="55" height="55">
+                <circle cx="50" cy="30" r="16" fill="#FBF8F3" stroke="#d4af37" stroke-width="2" />
+                <line x1="50" y1="18" x2="50" y2="42" stroke="#d4af37" stroke-width="2" />
+                <line x1="38" y1="30" x2="62" y2="30" stroke="#d4af37" stroke-width="2" />
+                <path d="M50 8 L50 12 M50 48 L50 52 M28 30 L32 30 M68 30 L72 30" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round" />
+                <path d="M32 50 C32 64, 68 64, 68 50 Z" fill="url(#goldGradient)" stroke="#d4af37" stroke-width="1.5" />
+                <path d="M50 58 L50 82" stroke="#d4af37" stroke-width="4" stroke-linecap="round" />
+                <path d="M36 82 L64 82 C64 82, 50 85, 36 82 Z" fill="url(#goldGradient)" stroke="#d4af37" stroke-width="2" />
+                <defs>
+                  <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#fdf6e2" />
+                    <stop offset="50%" stop-color="#d4af37" />
+                    <stop offset="100%" stop-color="#aa851f" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <span class="pulse-ring"></span>
           </div>
-          <span class="pulse-ring"></span>
-        </div>
-
-        <!-- Mini Preview inside envelope -->
-        <div class="mini-card">
-          <h2 class="script-font">Arshiya & Afham</h2>
-          <p class="sans-font">Are Weds</p>
+          
+          <!-- Side/Bottom Flaps & Pocket -->
+          <div class="envelope-pocket"></div>
+          
+          <!-- Inner Card Preview (slides out of the pocket) -->
+          <div class="envelope-card-preview" id="envelope-card-preview">
+            <div class="preview-content">
+              <span class="preview-cross">&#10013;</span>
+              <p class="preview-subtitle">FIRST HOLY COMMUNION</p>
+              <h2 class="preview-title script-font">Christan Lawrence</h2>
+              <p class="preview-prompt">Tap Seal to Open</p>
+            </div>
+          </div>
+          
         </div>
       </div>
       
-      <!-- Envelope Prompt -->
-      <div class="envelope-prompt" id="envelope-prompt">
-        <p class="prompt-subtitle">YOU ARE INVITED</p>
-        <h1 class="prompt-title serif-font">Arshiya & Afham</h1>
-        <p class="prompt-text">Tap the wax seal to open the invitation</p>
-      </div>
+      <!-- Skip Transition Button -->
+      <button id="skip-btn" class="skip-btn" aria-label="Skip Opening Animation">Skip &rsaquo;</button>
     </div>
+    
+    <!-- Transition flash overlay -->
+    <div class="light-flash" id="light-flash" aria-hidden="true"></div>
   </div>
 
   <!-- ================= MAIN SCROLLABLE INVITATION CONTAINER ================= -->
   <div class="main-container hidden" id="main-container">
     
-    <!-- SECTION 1: COVER / INTRO -->
-    <section class="invite-section reveal" id="section-welcome">
+    <!-- SECTION 1: HEADER & BIBLE VERSE -->
+    <section class="invite-section reveal" id="section-verse">
       <div class="card-border">
         <div class="card-content">
-          <div class="floral-corner top-left"></div>
-          <div class="floral-corner top-right"></div>
-          <div class="floral-corner bottom-left"></div>
-          <div class="floral-corner bottom-right"></div>
-          
-          <p class="bismillah-arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-          <p class="bismillah-translation">IN THE NAME OF ALLAH, THE MOST GRACIOUS & THE MOST MERCIFUL</p>
-          
-          <div class="host-details">
-            <h3 class="host-name">MR. B.H ASGAR ALI & MRS. FATHIMA</h3>
-            <p class="host-affiliation">(DECCAN GROUP OF COMPANIES, MANGALORE)</p>
+          <!-- Watercolor floral corner ornaments -->
+          <div class="watercolor-corner top-left"></div>
+          <div class="watercolor-corner top-right"></div>
+          <div class="watercolor-corner bottom-left"></div>
+          <div class="watercolor-corner bottom-right"></div>
+
+          <!-- Eucharistic and Communion Art Illustrations -->
+          <div class="communion-art art-left">
+            <img src="assets/images/communion_jesus.png" alt="Jesus Administers Holy Communion">
+          </div>
+          <div class="communion-art art-right">
+            <img src="assets/images/chalice_host.png" alt="Holy Chalice and Bread">
+          </div>
+
+          <!-- Holy Bible Verse -->
+          <div class="scripture-container">
+            <p class="bible-verse lora-font">
+              "Those who eat my body and drink my blood abide in me and I in them"
+            </p>
+            <p class="bible-ref">John 6:56</p>
           </div>
           
-          <p class="invitation-text">
-            Request the honor of your esteemed presence along with your family and friends on the auspicious wedding ceremony of our daughter
+          <div class="gold-divider-flourish">
+            <span class="line"></span>
+            <span class="cross-icon">&#10013;</span>
+            <span class="line"></span>
+          </div>
+
+          <p class="host-intro">We</p>
+          <h2 class="host-names-primary">Cipri Moras & Miriam Shaila Lobo</h2>
+          <p class="host-family-addition">along with our daughter <strong>Crissel Lucy</strong></p>
+          
+          <p class="invitation-lead">
+            cordially invite you and your family to the
           </p>
+
+          <h1 class="communion-banner-title gold-shimmer">First Holy Communion</h1>
+          <p class="of-our-son">of our beloved son</p>
           
-          <div class="couple-names">
-            <h1 class="bride-name script-font">Arshiya Zulekha</h1>
-            <p class="bride-details font-sm">
-              (Grand D/o. Marhoom Baikampady Hussain (Uttaka) & Marhoom Ibrahim Arkula)
-            </p>
-            
-            <div class="wedding-connector">
-              <span class="line"></span>
-              <span class="ampersand">WITH</span>
-              <span class="line"></span>
-            </div>
-            
-            <h1 class="groom-name script-font">Moideen Afham</h1>
-            <p class="groom-details font-sm">
-              (S/o. Mr. V.M Farook & Mrs. N.A Safariya,<br>Farook Boards & Wood Industries, Hosangadi, Manjeshwar)
-            </p>
-            <p class="groom-grand-details font-xs">
-              (Grand S/o. Marhoom V.K. Moideen Kunhi Haji, Farook Saw Mill, Hosangadi & N.M. Aboobacker Haji, Nekare, Naimarmoola)
-            </p>
-          </div>
-          
+          <h1 class="son-name-title script-font gold-shimmer">Christan Lawrence</h1>
+
           <div class="scroll-indicator">
             <span class="scroll-text">Scroll Down</span>
             <svg class="scroll-arrow" viewBox="0 0 24 24" width="20" height="20">
@@ -123,292 +158,171 @@
       </div>
     </section>
 
-    <!-- SECTION 2: MEHENDI CEREMONY -->
-    <section class="invite-section reveal" id="section-mehendi">
-      <div class="card-border border-mehendi">
+    <!-- SECTION 2: DUAL EVENTS DETAILS & COUNTDOWN -->
+    <section class="invite-section reveal" id="section-events">
+      <div class="card-border card-border-events">
         <div class="card-content">
-          <div class="floral-corner top-left theme-mehendi"></div>
-          <div class="floral-corner top-right theme-mehendi"></div>
-          <div class="floral-corner bottom-left theme-mehendi"></div>
-          <div class="floral-corner bottom-right theme-mehendi"></div>
-          
-          <div class="ceremony-header">
-            <div class="pattern-divider mehendi-icon"></div>
-            <h2 class="script-font event-title">Mehendi Ceremony</h2>
-            <p class="ceremony-invite-text">You are cordially invited to Mehendi Ceremony of</p>
-            <h3 class="bride-name-highlight script-font">Arshiya Zulekha</h3>
-          </div>
-          
-          <div class="event-details-box">
-            <p class="insha-allah">INSHA ALLAH</p>
-            <div class="date-badge">
-              <span class="day">WEDNESDAY</span>
-              <span class="date">12</span>
-              <span class="month-year">AUGUST 2026</span>
-            </div>
-            
-            <div class="time-row">
-              <svg viewBox="0 0 24 24" width="20" height="20" class="gold-icon"><path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
-              <span class="time-text">7:00 PM ONWARDS</span>
-            </div>
-            
-            <div class="venue-row">
-              <svg viewBox="0 0 24 24" width="20" height="20" class="gold-icon"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              <address class="venue-address">
-                <strong>INDIANA CONVENTION CENTER</strong><br>
-                Jeppinamogaru, Mangalore
-              </address>
+          <div class="watercolor-corner top-left"></div>
+          <div class="watercolor-corner top-right"></div>
+          <div class="watercolor-corner bottom-left"></div>
+          <div class="watercolor-corner bottom-right"></div>
+
+          <h2 class="serif-font section-title">Celebration Schedule</h2>
+          <p class="section-subtitle">JOIN US IN THIS SACRED FEAST</p>
+
+          <!-- Countdown Box -->
+          <div class="countdown-widget">
+            <p class="countdown-title">Countdown to Holy Mass</p>
+            <div class="countdown-container" id="countdown-timer">
+              <div class="time-block">
+                <span class="time-val" id="days">00</span>
+                <span class="time-lbl">Days</span>
+              </div>
+              <div class="time-block">
+                <span class="time-val" id="hours">00</span>
+                <span class="time-lbl">Hours</span>
+              </div>
+              <div class="time-block">
+                <span class="time-val" id="minutes">00</span>
+                <span class="time-lbl">Mins</span>
+              </div>
+              <div class="time-block">
+                <span class="time-val" id="seconds">00</span>
+                <span class="time-lbl">Secs</span>
+              </div>
             </div>
           </div>
 
-          <!-- Maps QR Code (Tap to open) -->
-          <div class="qrcode-wrapper">
-            <a href="https://maps.app.goo.gl/wJcM1fD4iUqGzG4B8" target="_blank" class="qrcode-link">
-              <div class="qrcode-frame">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&color=a67c1e&bgcolor=fcFAF6&data=https%3A%2F%2Fmaps.app.goo.gl%2FwJcM1fD4iUqGzG4B8" alt="Mehendi Map QR" class="qrcode-img">
-                <div class="qrcode-tap-hint">
-                  <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                  <span>Tap to Navigate</span>
+          <div class="event-cards-stack">
+            
+            <!-- Event 1: First Holy Communion Mass -->
+            <div class="event-card-box">
+              <div class="event-card-header">
+                <span class="event-cross">&#10013;</span>
+                <h3>Communion Mass</h3>
+              </div>
+              
+              <div class="event-card-details">
+                <div class="detail-row">
+                  <span class="detail-label">Date & Time:</span>
+                  <span class="detail-value">Sunday, 10 May 2026 at 8:30 AM</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Church:</span>
+                  <span class="detail-value highlight-venue">Infant Mary Church</span>
+                  <span class="detail-sub-value">Bajjodi, Mangalore</span>
                 </div>
               </div>
-            </a>
-            <p class="qrcode-subtext">Scan or Tap to Open Google Maps</p>
-          </div>
-          
-          <div class="action-buttons">
-            <button onclick="addToCalendar('Mehendi Ceremony', '2026-08-12T19:00:00', 'Indiana Convention Center, Jeppinamogaru, Mangalore')" class="btn btn-primary">
-              <span>Add to Calendar</span>
-            </button>
-          </div>
-          
-          <div class="quote-box">
-            <p class="quote">"Let's celebrate love, laughter & beautiful beginnings."</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- SECTION 3: NIKAH CEREMONY -->
-    <section class="invite-section reveal" id="section-nikah">
-      <div class="card-border border-nikah">
-        <div class="card-content">
-          <div class="floral-corner top-left theme-nikah"></div>
-          <div class="floral-corner top-right theme-nikah"></div>
-          <div class="floral-corner bottom-left theme-nikah"></div>
-          <div class="floral-corner bottom-right theme-nikah"></div>
-          
-          <div class="ceremony-header">
-            <div class="nikah-mubarak-logo">
-              <svg viewBox="0 0 100 100" width="70" height="70" class="gold-icon">
-                <path fill="currentColor" d="M50 10c-22.1 0-40 17.9-40 40s17.9 40 40 40 40-17.9 40-40-17.9-40-40-40zm0 72c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32zm-6-46h4c1.1 0 2-.9 2-2s-.9-2-2-2h-4c-1.1 0-2 .9-2 2s.9 2 2 2zm12 18c0 2.2-1.8 4-4 4h-8c-2.2 0-4-1.8-4-4V42c0-2.2 1.8-4 4-4h8c2.2 0 4 1.8 4 4v10zm-4-10h-8v10h8V44z"/>
-              </svg>
-            </div>
-            <h2 class="serif-font event-title">Nikah Ceremony</h2>
-            <p class="ceremony-invite-text">You are cordially invited to Nikah Ceremony</p>
-          </div>
-          
-          <div class="event-details-box">
-            <p class="insha-allah">INSHA ALLAH</p>
-            <div class="date-badge theme-green">
-              <span class="day">FRIDAY</span>
-              <span class="date">14</span>
-              <span class="month-year">AUGUST 2026</span>
-              <span class="hijri-date">1-RABI AL-AWWAL-1448</span>
-            </div>
-            
-            <div class="time-row">
-              <svg viewBox="0 0 24 24" width="20" height="20" class="gold-icon"><path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
-              <span class="time-text">4:30 PM</span>
-            </div>
-            
-            <div class="venue-row">
-              <svg viewBox="0 0 24 24" width="20" height="20" class="gold-icon"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              <address class="venue-address">
-                <strong>GRAND AUDITORIUM</strong><br>
-                Hosangady, Manjeshwar
-              </address>
-            </div>
-          </div>
+              <!-- Map QR Frame -->
+              <div class="qrcode-wrapper">
+                <a href="https://www.google.com/maps/search/?api=1&query=Infant+Mary+Church+Bajjodi+Mangalore" target="_blank" class="qrcode-link">
+                  <div class="qrcode-frame">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&color=a67c1e&bgcolor=fcFAF6&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DInfant%2BMary%2BChurch%2BBajjodi%2BMangalore" alt="Church Location QR" class="qrcode-img">
+                    <div class="qrcode-tap-hint">
+                      <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                      <span>Tap for Directions</span>
+                    </div>
+                  </div>
+                </a>
+                <p class="qrcode-subtext">Scan or Tap to Open Google Maps</p>
+              </div>
 
-          <!-- Maps QR Code (Tap to open) -->
-          <div class="qrcode-wrapper">
-            <a href="https://maps.app.goo.gl/3rX9W4v8vQ81f4yU9" target="_blank" class="qrcode-link">
-              <div class="qrcode-frame">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&color=a67c1e&bgcolor=fcFAF6&data=https%3A%2F%2Fmaps.app.goo.gl%2F3rX9W4v8vQ81f4yU9" alt="Nikah Map QR" class="qrcode-img">
-                <div class="qrcode-tap-hint">
-                  <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                  <span>Tap to Navigate</span>
+              <div class="event-actions">
+                <a href="https://www.google.com/maps/search/?api=1&query=Infant+Mary+Church+Bajjodi+Mangalore" target="_blank" class="btn btn-primary">
+                  <span>Get Directions</span>
+                </a>
+                <button onclick="addToCalendar('First Holy Communion Mass: Christan Lawrence', '2026-05-10T08:30:00', 'Infant Mary Church, Bajjodi, Mangalore')" class="btn btn-outline">
+                  <span>Add to Calendar</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Event 2: Reception & Celebration -->
+            <div class="event-card-box border-purple-tint">
+              <div class="event-card-header">
+                <span class="event-cross">&#10047;</span>
+                <h3>Celebration & Lunch</h3>
+              </div>
+              
+              <div class="event-card-details">
+                <div class="detail-row">
+                  <span class="detail-label">Time:</span>
+                  <span class="detail-value">Sunday, 10 May 2026 at 12:00 Noon</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Reception:</span>
+                  <span class="detail-value highlight-venue">Don Bosco Hall</span>
+                  <span class="detail-sub-value">Balmatta Road, Mangalore</span>
                 </div>
               </div>
-            </a>
-            <p class="qrcode-subtext">Scan or Tap to Open Google Maps</p>
-          </div>
-          
-          <div class="action-buttons">
-            <button onclick="addToCalendar('Nikah Ceremony: Arshiya & Afham', '2026-08-14T16:30:00', 'Grand Auditorium, Hosangady, Manjeshwar')" class="btn btn-primary">
-              <span>Add to Calendar</span>
-            </button>
-          </div>
-          
-          <div class="quote-box">
-            <p class="quote">"Your dua and blessings are the best gift for us"</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- SECTION 4: RECEPTION CEREMONY -->
-    <section class="invite-section reveal" id="section-reception">
-      <div class="card-border border-reception">
-        <div class="card-content">
-          <div class="floral-corner top-left theme-reception"></div>
-          <div class="floral-corner top-right theme-reception"></div>
-          <div class="floral-corner bottom-left theme-reception"></div>
-          <div class="floral-corner bottom-right theme-reception"></div>
-          
-          <div class="ceremony-header">
-            <div class="pattern-divider reception-icon"></div>
-            <h2 class="script-font event-title">Reception</h2>
-            <p class="ceremony-invite-text">You are cordially invited to Reception Ceremony</p>
-          </div>
-          
-          <div class="event-details-box">
-            <p class="insha-allah">INSHA ALLAH</p>
-            <div class="date-badge theme-purple">
-              <span class="day">SUNDAY</span>
-              <span class="date">16</span>
-              <span class="month-year">AUGUST 2026</span>
-              <span class="hijri-date">3-RABI AL-AWWAL-1448</span>
-            </div>
-            
-            <div class="time-row">
-              <svg viewBox="0 0 24 24" width="20" height="20" class="gold-icon"><path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
-              <span class="time-text">7:00 PM ONWARDS</span>
-            </div>
-            
-            <div class="venue-row">
-              <svg viewBox="0 0 24 24" width="20" height="20" class="gold-icon"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              <address class="venue-address">
-                <strong>TMA PAI INTERNATIONAL CONVENTION CENTRE</strong><br>
-                MG Road, Mangaluru
-              </address>
-            </div>
-          </div>
-
-          <!-- Maps QR Code (Tap to open) -->
-          <div class="qrcode-wrapper">
-            <a href="https://maps.app.goo.gl/B9qYqWzPq2B4f2vA8" target="_blank" class="qrcode-link">
-              <div class="qrcode-frame">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&color=a67c1e&bgcolor=fcFAF6&data=https%3A%2F%2Fmaps.app.goo.gl%2FB9qYqWzPq2B4f2vA8" alt="Reception Map QR" class="qrcode-img">
-                <div class="qrcode-tap-hint">
-                  <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                  <span>Tap to Navigate</span>
-                </div>
+              <!-- Map QR Frame -->
+              <div class="qrcode-wrapper">
+                <a href="https://www.google.com/maps/search/?api=1&query=Don+Bosco+Hall+Balmatta+Road+Mangalore" target="_blank" class="qrcode-link">
+                  <div class="qrcode-frame">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&color=a67c1e&bgcolor=fcFAF6&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DDon%2BBosco%2BHall%2BBalmatta%2BRoad%2BMangalore" alt="Reception Location QR" class="qrcode-img">
+                    <div class="qrcode-tap-hint">
+                      <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                      <span>Tap for Directions</span>
+                    </div>
+                  </div>
+                </a>
+                <p class="qrcode-subtext">Scan or Tap to Open Google Maps</p>
               </div>
-            </a>
-            <p class="qrcode-subtext">Scan or Tap to Open Google Maps</p>
-          </div>
-          
-          <div class="action-buttons">
-            <button onclick="addToCalendar('Wedding Reception: Arshiya & Afham', '2026-08-16T19:00:00', 'TMA Pai International Convention Centre, MG Road, Mangaluru')" class="btn btn-primary">
-              <span>Add to Calendar</span>
-            </button>
-          </div>
-          
-          <div class="quote-box">
-            <p class="quote">"Your dua and blessings are the best gift for us"</p>
+
+              <div class="event-actions">
+                <a href="https://www.google.com/maps/search/?api=1&query=Don+Bosco+Hall+Balmatta+Road+Mangalore" target="_blank" class="btn btn-primary">
+                  <span>Get Directions</span>
+                </a>
+                <button onclick="addToCalendar('Communion Celebration & Lunch: Christan Lawrence', '2026-05-10T12:00:00', 'Don Bosco Hall, Balmatta Road, Mangalore')" class="btn btn-outline">
+                  <span>Add to Calendar</span>
+                </button>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 5: RSVP & COUNTDOWN -->
-    <section class="invite-section reveal" id="section-rsvp">
-      <div class="card-border border-rsvp">
+
+    <!-- SECTION 4: FOOTER / ENDNOTE -->
+    <footer class="invite-section reveal" id="section-footer">
+      <div class="card-border">
         <div class="card-content">
-          <div class="floral-corner top-left"></div>
-          <div class="floral-corner top-right"></div>
-          <div class="floral-corner bottom-left"></div>
-          <div class="floral-corner bottom-right"></div>
-          
-          <h2 class="script-font section-title">Countdown to Nikah</h2>
-          
-          <!-- Countdown Widget -->
-          <div class="countdown-container" id="countdown">
-            <div class="time-block">
-              <span class="time-val" id="days">00</span>
-              <span class="time-lbl">Days</span>
-            </div>
-            <div class="time-block">
-              <span class="time-val" id="hours">00</span>
-              <span class="time-lbl">Hrs</span>
-            </div>
-            <div class="time-block">
-              <span class="time-val" id="minutes">00</span>
-              <span class="time-lbl">Mins</span>
-            </div>
-            <div class="time-block">
-              <span class="time-val" id="seconds">00</span>
-              <span class="time-lbl">Secs</span>
-            </div>
+          <div class="watercolor-corner top-left"></div>
+          <div class="watercolor-corner top-right"></div>
+          <div class="watercolor-corner bottom-left"></div>
+          <div class="watercolor-corner bottom-right"></div>
+
+          <div class="chalice-gold-icon">&#10013;</div>
+          <p class="treasured-gifts-text script-font">
+            "Your presence & blessings will be our treasured gifts"
+          </p>
+          <div class="gold-divider-flourish">
+            <span class="line"></span>
+            <span class="cross-icon">&#10022;</span>
+            <span class="line"></span>
           </div>
 
-          <div class="rsvp-divider"></div>
+          <p class="footer-contacts">
+            For Details: <br>
+            <a href="tel:+919844191964">98441 91964</a> &middot; <a href="tel:+919743200375">97432 00375</a>
+          </p>
 
-          <h2 class="script-font section-title">Will you attend?</h2>
-          
-          <!-- Interactive RSVP Form -->
-          <form id="rsvp-form" class="rsvp-form">
-            <div class="form-group">
-              <input type="text" id="guest-name" name="name" placeholder="Enter Your Name" required>
-            </div>
-            
-            <div class="form-group radio-group">
-              <label class="radio-label">
-                <input type="radio" name="attendance" value="attending" checked>
-                <span class="radio-custom"></span> Joyfully Accept
-              </label>
-              <label class="radio-label">
-                <input type="radio" name="attendance" value="declined">
-                <span class="radio-custom"></span> Regretfully Decline
-              </label>
-            </div>
-
-            <div class="form-group select-group" id="guests-number-group">
-              <label for="guests-count">Number of Guests</label>
-              <select id="guests-count" name="guests">
-                <option value="1">1 Person</option>
-                <option value="2">2 Persons</option>
-                <option value="3">3 Persons</option>
-                <option value="4">4 Persons</option>
-                <option value="5+">5+ Persons</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <textarea id="guest-message" name="message" placeholder="Warm Wishes or Message for the Couple" rows="2"></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-submit">
-              <span>Send RSVP</span>
-            </button>
-          </form>
+          <p class="footer-credits-text">
+            Celebrating with Love & Joy &middot; Cipri, Miriam & Crissel
+          </p>
         </div>
       </div>
-    </section>
+    </footer>
 
   </div>
 
-  <!-- RSVP Confirmation Success Modal -->
-  <div class="modal-overlay hidden" id="rsvp-modal">
-    <div class="modal-content">
-      <div class="modal-floral"></div>
-      <h2 class="script-font modal-title">Thank You!</h2>
-      <p class="modal-text" id="modal-response-msg">Your response has been saved. We look forward to celebrating together!</p>
-      <button class="btn btn-primary" id="close-modal-btn"><span>Close</span></button>
-    </div>
-  </div>
 
+
+  <!-- Scripts -->
   <script src="script.js"></script>
 </body>
 </html>
